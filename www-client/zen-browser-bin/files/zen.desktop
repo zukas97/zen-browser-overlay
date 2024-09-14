@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Zen Browser
+Type=Applicaton
+Icon=/opt/apps/zen/browser/chrome/icons/default/default64.png
+Exec=zen
