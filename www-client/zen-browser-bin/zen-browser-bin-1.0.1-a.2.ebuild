@@ -3,11 +3,11 @@
 
 EAPI=8
 
-#version="1.0.0-a.39"
+
 
 DESCRIPTION="Fast and Beutiful Firfox-based Web Browser"
 HOMEPAGE="https://zen-browser.app"
-SRC_URI="https://github.com/zen-browser/desktop/releases/download/${P}/zen.linux-generic.tar.bz2"
+SRC_URI="https://github.com/zen-browser/desktop/releases/download/${PV}/zen.linux-generic.tar.bz2"
 
 LICENSE="MPL-2"
 SLOT="0"
@@ -18,13 +18,14 @@ RDEPEND="${DEPEND}"
 BDEPEND=""
 
 src_unpack() {
-	mkdir -p /opt/apps/zen
-	chmod 777 /opt/apps/zen
-	tar -xf zen.linux-generic.tar.bz2 -C /opt/apps/zen
+	mkdir -p /opt/zen
+	chmod 777 /opt/zen
+	tar -xf zen.linux-generic.tar.bz2 -C ${DESTDIR}/opt/zen
 }
 
 src_install() {
-	cp ${FILESDIR}/zen.desktop /usr/share/applications/
-	cp ${FILESDIR}/zen /usr/bin/
+	insinto /usr/share/applications
+	doins ${FILESDIR}/zen.desktop
+	dobin ${FILESDIR}/zen
 
 }
